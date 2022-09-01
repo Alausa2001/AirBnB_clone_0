@@ -10,7 +10,8 @@ time_format = "%Y-%m-%dT%H:%M:%S.%f"
 
 
 class BaseModel:
-    """This class defines all common attributes/methods for other classes"""
+    """This class defines all common attributes/methods
+    for other classes"""
 
     def __init__(self, *args, **kwargs):
         """initializes the instances with
