@@ -7,8 +7,8 @@ The flow of serialization and dserialization:
 <class 'BaseModel'>"""
 
 
-from json import dumps, loads
-
+from json import dump, load
+from models.base_model import BaseModel
 
 class FileStorage:
     """This class handles serialzation of instances to json file
@@ -36,7 +36,7 @@ class FileStorage:
         for key in self.__objects:
             dict_format[key] = self.__objects[key].to_dict()
         with open(self.__file_path, 'w', encoding='utf-8') as file_save:
-            file_save.write(dumps(dict_format))
+            dump(dict_format, file_save)
 
     def reload(self):
         """deserializes the JSON file to __objects (only if the JSON file
@@ -44,24 +44,9 @@ class FileStorage:
         exist, no exception should be raised)"""
 
         try:
-            with open(self.__file_path, 'r', encoding='utf-8') as file_load:
-                file_content = file_load.read()
-                py_obj = loads(file_content)
+            with open(self.__file_path, 'r') as file_load:
+                file_content = load(file_load)
+                for key in file_content:
+                    self.__objects[key] = file_content[key]
         except Exception:
             pass
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
