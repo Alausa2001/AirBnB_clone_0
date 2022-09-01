@@ -11,15 +11,24 @@ time_format = "%Y-%m-%dT%H:%M:%S.%f"
 class BaseModel:
     """This class defines all common attributes/methods for other classes"""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """initializes the instances with
         -- a unique id
         -- time created
         -- time updated
         """
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = self.created_at
+        if kwargs:
+            for key, value in kwargs.items():
+                if key != '__class__':
+                    setattr(self, key, value)
+            self.created_at = datetime.strptime(kwargs["created_at"],
+                                                time_format)
+            self.updated_at = datetime.strptime(kwargs["updated_at"],
+                                                time_format)
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = self.created_at
 
     def __str__(self):
         """returns the string representation of the instance attributes"""
