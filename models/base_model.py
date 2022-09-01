@@ -4,7 +4,8 @@
 
 from datetime import datetime
 import uuid
-storage = __import__('models.__init__').storage
+#storage = __import__('models.__init__').storage
+import models
 
 time_format = "%Y-%m-%dT%H:%M:%S.%f"
 
@@ -31,7 +32,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = self.created_at
-            storage.new(self)
+            models.storage.new(self)
 
     def __str__(self):
         """returns the string representation of the instance attributes"""
@@ -41,7 +42,7 @@ class BaseModel:
     def save(self):
         """updates the attribute 'updated_at' with the current date"""
         self.updated_at = datetime.now()
-        storage.save()
+        models.storage.save()
 
     def to_dict(self):
         """returns a dictionary containing all keys/values of __dict__ of the
