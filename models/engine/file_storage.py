@@ -19,17 +19,24 @@ class FileStorage:
 
     def all(self):
         """returns the dictionary '__objects'"""
-        return (__objects)
+        return (self.__objects)
 
     def new(self, obj):
         """sets in __objects the obj with key <obj class name>.id"""
-        key = obj.__class__.__name__ + "." + obj.id
-        __object[key] = obj
+        if obj:
+            key = obj.__class__.__name__ + "." + obj.id
+            self.__objects[key] = obj
 
     def save(self):
         """serializes __objects to the JSON file (path: __file_path)"""
+        # in order to make the BaseModel serializable it has to be converted
+        # to dictionary
+        dict_format = {}
+        
+        for key in self.__objects:
+            dict_format[key] = self.__objects[key].to_dict()
         with open(self.__file_path, 'w', encoding='utf-8') as file_save:
-            file_save.write(dumps(__objects))
+            file_save.write(dumps(dict_format))
 
     def reload(self):
         """deserializes the JSON file to __objects (only if the JSON file
