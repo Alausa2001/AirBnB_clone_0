@@ -7,8 +7,8 @@ The flow of serialization and dserialization:
 <class 'BaseModel'>"""
 
 
-from json import dump, load
-from models.base_model import BaseModel
+from json import dumps, loads
+from models import base_model
 
 class FileStorage:
     """This class handles serialzation of instances to json file
@@ -19,34 +19,37 @@ class FileStorage:
 
     def all(self):
         """returns the dictionary '__objects'"""
-        return (self.__objects)
+        return (FileStorage.__objects)
 
     def new(self, obj):
         """sets in __objects the obj with key <obj class name>.id"""
         if obj:
             key = obj.__class__.__name__ + "." + obj.id
-            self.__objects[key] = obj
+            FileStorage.__objects[key] = obj
 
     def save(self):
         """serializes __objects to the JSON file (path: __file_path)"""
         # in order to make the BaseModel serializable it has to be converted
         # to dictionary
-        dict_format = {}
-        
-        for key in self.__objects:
-            dict_format[key] = self.__objects[key].to_dict()
+
+        dict_format = {} # dict format of FileStorage.__objects
+        for key, value in FileStorage.__objects.items():
+            if value:
+                dict_format[key] = value.to_dict()
         with open(self.__file_path, 'w', encoding='utf-8') as file_save:
-            dump(dict_format, file_save)
+            file_save.write(dumps(dict_format))
+
 
     def reload(self):
         """deserializes the JSON file to __objects (only if the JSON file
         (__file_path) exists ; otherwise, do nothing. If the file doesn’t
         exist, no exception should be raised)"""
-
+        from models.base_model import BaseModel
         try:
             with open(self.__file_path, 'r') as file_load:
-                file_content = load(file_load)
-                for key in file_content:
-                    self.__objects[key] = file_content[key]
+                file_content = file_load.read()
+                py_dict = loads(file_content)
+                for key in py_dict.keys():
+                    FileStorage.__objects[key] = BaseModel(**py_dict[key])
         except Exception:
             pass
