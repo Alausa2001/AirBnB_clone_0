@@ -19,9 +19,10 @@ class HBNBCommand(cmd.Cmd):
         """Quit command to exit the program"""
         raise SystemExit
 
-    def do_emptyline(self):
+    def emptyline(self):
         """an emptyline + ENTER executes nothing"""
         pass
+
 
     prompt = "(hbnb) "
 
