@@ -10,6 +10,7 @@ The flow of serialization and dserialization:
 from json import dumps, loads
 from models import base_model
 
+
 class FileStorage:
     """This class handles serialzation of instances to json file
     and deserialization of the from json file to instances"""
@@ -32,13 +33,12 @@ class FileStorage:
         # in order to make the BaseModel serializable it has to be converted
         # to dictionary
 
-        dict_format = {} # dict format of FileStorage.__objects
+        dict_format = {}  # dict format of FileStorage.__objects
         for key, value in FileStorage.__objects.items():
             if value:
                 dict_format[key] = value.to_dict()
         with open(self.__file_path, 'w', encoding='utf-8') as file_save:
             file_save.write(dumps(dict_format))
-
 
     def reload(self):
         """deserializes the JSON file to __objects (only if the JSON file
