@@ -20,13 +20,13 @@ class FileStorage:
 
     def all(self):
         """returns the dictionary '__objects'"""
-        return (FileStorage.__objects)
+        return (self.__objects)
 
     def new(self, obj):
         """sets in __objects the obj with key <obj class name>.id"""
         if obj:
             key = obj.__class__.__name__ + "." + obj.id
-            FileStorage.__objects[key] = obj
+            self.__objects[key] = obj
 
     def save(self):
         """serializes __objects to the JSON file (path: __file_path)"""
@@ -34,7 +34,7 @@ class FileStorage:
         # to dictionary
 
         dict_format = {}  # dict format of FileStorage.__objects
-        for key, value in FileStorage.__objects.items():
+        for key, value in self.__objects.items():
             if value:
                 dict_format[key] = value.to_dict()
         with open(self.__file_path, 'w', encoding='utf-8') as file_save:
@@ -50,6 +50,6 @@ class FileStorage:
                 file_content = file_load.read()
                 py_dict = loads(file_content)
                 for key in py_dict.keys():
-                    FileStorage.__objects[key] = BaseModel(**py_dict[key])
+                    self.__objects[key] = BaseModel(**py_dict[key])
         except Exception:
             pass
