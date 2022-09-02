@@ -33,7 +33,7 @@ All the classes are handled by the ```_Storage_``` engine in the ```_FileStorage
 * Style guidelines:
  * pycodestyle (version 2.8.*)
 
-All the development and testing was runned over an operating system Ubuntu 20.04 LTS using programming language Python 3.8.5. The editors used were VIM 8.1.3741, VSCode 1.67.1. Control version using Git 2.36.1.
+All the development and testing was runned over an operating system Ubuntu 20.04 LTS using programming language Python 3.8.10. The editors used were VIM 8.1.3741, VSCode 1.67.1. Control version using Git 2.36.1.
 
 ### 0x03 Installation
 
