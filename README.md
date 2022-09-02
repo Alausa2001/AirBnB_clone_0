@@ -9,7 +9,7 @@
 * 0x06 Authors
 
 ### 0x01 Introduction
-Team project to build a clone of [AirBnB](www.airbnb.com).
+Team project to build a clone of [AirBnB](https://www.airbnb.com/).
 
 The console is a command interpreter to manage objects abstraction between objects and how they are stored.
 
@@ -28,7 +28,7 @@ All the classes are handled by the ```_Storage_``` engine in the ```_FileStorage
 
 ### 0x02 Environment
 
-Suite CRM terminal python Suite CRM Suite CRM git distributed version control system Github
+[Ubuntu](https://ubuntu.com/) [GNU Bash](https://www.gnu.org/software/bash/) [Python](https://www.python.org/) [Vim](https://www.vim.org/) [Visual Studio Code](https://code.visualstudio.com/) [Git](https://git-scm.com/) [GitHub](https://github.com/)
 
 * Style guidelines:
  * pycodestyle (version 2.7.*)
