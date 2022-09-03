@@ -46,10 +46,5 @@ my_amenity.name = "amenities_available"
 my_amenity.save()
 print(my_amenity)
 
-print("place")
-my_place = Place()
-my_place.name = "home"
-my_place.amenity_ids = Amenity.id
-my_place.save()
-print(my_place)
+
 
