@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This module contains the entry point of the command interpreter"""
 import cmd
-
+from models.base_model import BaseModel
 
 class HBNBCommand(cmd.Cmd):
     """This class handles the implementation of the
@@ -22,6 +22,15 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """an emptyline + ENTER executes nothing"""
         pass
+    def do_create(self, arg):
+        classes = ['BaseModel']
+        if len(arg) == 0:
+            print("** class is missing **")
+        elif arg not in classes:
+            print("** class doesn't exist **")
+        else:
+            new = BaseModel()
+            print(new.id)
 
 
     prompt = "(hbnb) "
