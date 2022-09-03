@@ -75,7 +75,7 @@ class HBNBCommand(cmd.Cmd):
                 if class_id not in show:
                     print("** no instance found **")
                 else:
-                    show.clear()
+                    show.pop(class_id)
                     storage.save()
             else:
                 print("** instance id missing **")
