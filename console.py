@@ -1,7 +1,14 @@
 #!/usr/bin/python3
 """This module contains the entry point of the command interpreter"""
+
+
 import cmd
 from models.base_model import BaseModel
+from models.__init__ import storage
+from sys import argv
+
+
+classes = ['BaseModel']
 
 
 class HBNBCommand(cmd.Cmd):
@@ -25,14 +32,35 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, arg):
-        classes = ['BaseModel']
+        """creates an instance of BaseModel"""
         if len(arg) == 0:
             print("** class is missing **")
         elif arg not in classes:
             print("** class doesn't exist **")
         else:
             new = BaseModel()
+            new.save()
             print(new.id)
+
+    def do_show(self, arg):
+        """prints the string representaion of an instance
+        based on the class name and id"""
+        if len(arg) == 0:
+            print("** class name missing **")
+            return False
+        show = storage.all()
+        cmd_arg = arg.split()
+        if cmd_arg[0] in classes:
+            class_id = '.'.join(cmd_arg)
+            if len(cmd_arg) == 2:
+                if class_id not in show:
+                    print("** no instance found **")
+                else:
+                    print(show[class_id])
+            else:
+                print("** instance id missing **")
+        else:
+            print("** class doesn't exist **")
 
     prompt = "(hbnb) "
 
