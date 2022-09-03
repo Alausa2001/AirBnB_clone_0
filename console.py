@@ -3,6 +3,7 @@
 import cmd
 from models.base_model import BaseModel
 
+
 class HBNBCommand(cmd.Cmd):
     """This class handles the implementation of the
     command interpreter attributes"""
@@ -22,6 +23,7 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """an emptyline + ENTER executes nothing"""
         pass
+
     def do_create(self, arg):
         classes = ['BaseModel']
         if len(arg) == 0:
@@ -31,7 +33,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             new = BaseModel()
             print(new.id)
-
 
     prompt = "(hbnb) "
 
