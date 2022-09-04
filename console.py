@@ -41,6 +41,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif arg in classes:
             new = eval(arg + '()')
+            storage.save()
+            print(new.id)
         else:
             print("** class doesn't exist **")
 
