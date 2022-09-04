@@ -116,7 +116,7 @@ class HBNBCommand(cmd.Cmd):
                     if len(c_arg) > 2:
                         if len(c_arg) > 3:
                             for key in show:
-                                setattr(show[key], c_arg[2], c_arg[3])
+                                show[key].__dict__[c_arg[2]] = c_arg[3]
                                 storage.save()
                         else:
                             print("** value missing **")

@@ -3,7 +3,7 @@
         "id": "00f8abc3-c512-47be-a93f-63d712b4565a",
         "created_at": "2022-09-03T18:44:16.266537",
         "updated_at": "2022-09-03T18:44:16.266555",
-        "name": "we",
+        "name": "wq",
         "my_number": 89,
         "__class__": "BaseModel"
     },
@@ -11,21 +11,21 @@
         "id": "d154cd9b-7a70-48a8-8856-bd2b7e608866",
         "created_at": "2022-09-03T23:34:11.522289",
         "updated_at": "2022-09-03T23:34:11.522306",
-        "name": "we",
+        "name": "wq",
         "__class__": "BaseModel"
     },
     "BaseModel.ab1eb84d-724b-422b-a3a6-f5ebf7f7af9b": {
         "id": "ab1eb84d-724b-422b-a3a6-f5ebf7f7af9b",
         "created_at": "2022-09-03T23:34:14.130122",
         "updated_at": "2022-09-03T23:34:14.130139",
-        "name": "we",
+        "name": "wq",
         "__class__": "BaseModel"
     },
     "BaseModel.4ef20843-5c75-447d-a0ab-0f610ea01603": {
         "id": "4ef20843-5c75-447d-a0ab-0f610ea01603",
         "created_at": "2022-09-03T23:42:24.162926",
         "updated_at": "2022-09-03T23:42:24.162942",
-        "name": "we",
+        "name": "wq",
         "__class__": "BaseModel"
     }
 }
