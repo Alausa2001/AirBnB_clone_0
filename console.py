@@ -11,7 +11,6 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
-import shlex
 
 classes = ['BaseModel', 'User', 'Place', 'State', 'City', 'Amenity', 'Review']
 
@@ -109,7 +108,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
         """update an instance based on class and id"""
-        c_arg = shlex.split(arg)
+        c_arg = arg.split()
         show = storage.all()
         if len(c_arg) == 0:
             print("** class name missing **")
