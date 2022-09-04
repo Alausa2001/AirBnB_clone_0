@@ -105,6 +105,9 @@ class HBNBCommand(cmd.Cmd):
         """update an instance based on class and id"""
         c_arg = arg.split()
         show = storage.all()
+        int_attr = ['my_number', 'number_rooms', 'number_bathrooms',
+                    'max_guest', 'price_by_night']
+        float_attr = ['longitude', 'latitude']
         if len(c_arg) == 0:
             print("** class name missing **")
             return False
@@ -116,6 +119,10 @@ class HBNBCommand(cmd.Cmd):
                     if len(c_arg) > 2:
                         if len(c_arg) > 3:
                             for key in show:
+                                if c_arg[2] in int_attr:
+                                    c_arg[3] = int(c_arg[3])
+                                if c_arg[2] in float_attr:
+                                    c_arg[3] = float(c_arg[3])
                                 show[key].__dict__[c_arg[2]] = c_arg[3]
                                 storage.save()
                         else:
