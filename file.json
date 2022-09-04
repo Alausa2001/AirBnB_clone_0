@@ -1,84 +1,9 @@
 {
-    "User.eb99ac61-3094-4f20-85ca-62fd93f530ea": {
-        "id": "eb99ac61-3094-4f20-85ca-62fd93f530ea",
-        "created_at": "2022-09-04T10:43:11.367203",
-        "updated_at": "2022-09-04T10:43:11.367229",
-        "first_name": "Betty",
-        "last_name": "Bar",
-        "email": "airbnb@mail.com",
-        "password": "root",
-        "__class__": "User"
-    },
-    "User.96837e88-09d1-46f0-9193-cdbddc8ebe84": {
-        "id": "96837e88-09d1-46f0-9193-cdbddc8ebe84",
-        "created_at": "2022-09-04T10:43:11.367634",
-        "updated_at": "2022-09-04T10:43:11.367646",
-        "first_name": "John",
-        "email": "airbnb2@mail.com",
-        "password": "root",
-        "__class__": "User"
-    },
-    "State.bd394699-37fe-4a32-8d5f-a1221c3d8ed7": {
-        "id": "bd394699-37fe-4a32-8d5f-a1221c3d8ed7",
-        "created_at": "2022-09-04T10:43:11.368398",
-        "updated_at": "2022-09-04T10:43:11.368411",
-        "name": "ogun",
-        "__class__": "State"
-    },
-    "City.8b4cfbac-9edf-4910-8eb0-66af5bf1c289": {
-        "id": "8b4cfbac-9edf-4910-8eb0-66af5bf1c289",
-        "created_at": "2022-09-04T10:43:11.369029",
-        "updated_at": "2022-09-04T10:43:11.369041",
-        "name": "calufonia",
-        "state_id": "8b4cfbac-9edf-4910-8eb0-66af5bf1c289",
-        "__class__": "City"
-    },
-    "Amenity.d1c44aa6-839f-4c45-a954-359503fe423f": {
-        "id": "d1c44aa6-839f-4c45-a954-359503fe423f",
-        "created_at": "2022-09-04T10:43:11.369723",
-        "updated_at": "2022-09-04T10:43:11.369736",
-        "name": "amenities_available",
-        "__class__": "Amenity"
-    },
-    "User.04e40255-26e8-473f-8111-26ed8fbf99a0": {
-        "id": "04e40255-26e8-473f-8111-26ed8fbf99a0",
-        "created_at": "2022-09-04T10:43:16.220284",
-        "updated_at": "2022-09-04T10:43:16.220299",
-        "first_name": "Betty",
-        "last_name": "Bar",
-        "email": "airbnb@mail.com",
-        "password": "root",
-        "__class__": "User"
-    },
-    "User.826788e0-8d0b-4bed-84e3-3d0df903485f": {
-        "id": "826788e0-8d0b-4bed-84e3-3d0df903485f",
-        "created_at": "2022-09-04T10:43:16.220959",
-        "updated_at": "2022-09-04T10:43:16.220976",
-        "first_name": "John",
-        "email": "airbnb2@mail.com",
-        "password": "root",
-        "__class__": "User"
-    },
-    "State.47f4ece0-53b1-4f47-b9d7-3ace915bfb96": {
-        "id": "47f4ece0-53b1-4f47-b9d7-3ace915bfb96",
-        "created_at": "2022-09-04T10:43:16.224487",
-        "updated_at": "2022-09-04T10:43:16.224507",
-        "name": "ogun",
-        "__class__": "State"
-    },
-    "City.183214e0-41ad-4131-a794-e868aa544213": {
-        "id": "183214e0-41ad-4131-a794-e868aa544213",
-        "created_at": "2022-09-04T10:43:16.225484",
-        "updated_at": "2022-09-04T10:43:16.225496",
-        "name": "calufonia",
-        "state_id": "183214e0-41ad-4131-a794-e868aa544213",
-        "__class__": "City"
-    },
-    "Amenity.c7fb7348-87eb-4f9a-aff6-46f152928294": {
-        "id": "c7fb7348-87eb-4f9a-aff6-46f152928294",
-        "created_at": "2022-09-04T10:43:16.226473",
-        "updated_at": "2022-09-04T10:43:16.226488",
-        "name": "amenities_available",
-        "__class__": "Amenity"
+    "BaseModel.2f223eef-3ea4-4b1d-9c56-e4122907fc48": {
+        "id": "2f223eef-3ea4-4b1d-9c56-e4122907fc48",
+        "created_at": "2022-09-04T23:57:50.294724",
+        "updated_at": "2022-09-04T23:57:50.294745",
+        "name": "we",
+        "__class__": "BaseModel"
     }
 }
