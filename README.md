@@ -226,5 +226,5 @@ _Updates an instance based on the class name, id, and kwargs passed. Update the 
 
 ### 0x06 Authors
 
-* Alausa Abdulqoyum Oluwaferanmi Alausa2001
-* Alausa Aishat Opeyemi Alausaaisha
+* Alausa Abdulqoyum Oluwaferanmi
+* Alausa Aishat Opeyemi
