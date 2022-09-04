@@ -101,6 +101,34 @@ class HBNBCommand(cmd.Cmd):
                 all_list.append(str(all_dict[key]))
             print(all_list)
 
+    def do_update(self, arg):
+        """update an instance based on class and id"""
+        c_arg = arg.split()
+        show = storage.all()
+        if len(c_arg) == 0:
+            print("** class name missing **")
+            return False
+        DND = ['id', 'created_at', 'updated_at']
+        if c_arg[0] in classes:
+            if len(c_arg) > 1:
+                class_id = '.'.join([c_arg[0], c_arg[1]])
+                if class_id in show:
+                    if len(c_arg) > 2:
+                        if len(c_arg) > 3:
+                            for key in show:
+                                setattr(show[key], c_arg[2], c_arg[3])
+                                storage.save()
+                        else:
+                            print("** value missing **")
+                    else:
+                        print("** attribute name missing **")
+                else:
+                    print("** no instance found **")
+            else:
+                print("** instance id missing **")
+        else:
+            print("** class doesn't exist **")
+
     prompt = "(hbnb) "
 
 
