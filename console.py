@@ -32,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, arg):
         """creates an instance of BaseModel"""
         if len(arg) == 0:
-            print("** class is missing **")
+            print("** class name missing **")
         elif arg not in classes:
             print("** class doesn't exist **")
         else:
@@ -64,7 +64,7 @@ class HBNBCommand(cmd.Cmd):
         """Deletes an instance based on the class name and id
         (save the change into the JSON file)."""
         if len(arg) == 0:
-            print("** class is missing **")
+            print("** class name missing **")
             return False
         show = storage.all()
         cmd_arg = arg.split()
