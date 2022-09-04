@@ -82,6 +82,25 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
+    def do_all(self, arg):
+        """prints all string representation of all instances
+        based or not on the class name."""
+        cmd_arg = arg.split()
+        all_list = []
+        if len(arg) > 0:
+            if cmd_arg[0] in classes:
+                all_dict = storage.all()
+                for key in all_dict.keys():
+                    all_list.append(str(all_dict[key]))
+                print(all_list)
+            else:
+                print("** class doesn't exist **")
+        elif len(arg) == 0:
+            all_dict = storage.all()
+            for key in all_dict.keys():
+                all_list.append(str(all_dict[key]))
+            print(all_list)
+
     prompt = "(hbnb) "
 
 
