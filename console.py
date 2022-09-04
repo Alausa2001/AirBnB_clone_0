@@ -5,7 +5,6 @@
 import cmd
 from models.base_model import BaseModel
 from models.__init__ import storage
-from sys import argv
 
 classes = ['BaseModel']
 
@@ -111,7 +110,6 @@ class HBNBCommand(cmd.Cmd):
         if len(c_arg) == 0:
             print("** class name missing **")
             return False
-        DND = ['id', 'created_at', 'updated_at']
         if c_arg[0] in classes:
             if len(c_arg) > 1:
                 class_id = '.'.join([c_arg[0], c_arg[1]])
