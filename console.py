@@ -146,7 +146,7 @@ class HBNBCommand(cmd.Cmd):
     def do_count(self, arg):
         """ retrieve the number of instances of a class"""
         count = 0
-        cmd_arg = arg.split()
+        cmd_arg = [arg]
         for key in storage.all().keys():
             key = key.split('.')
             if key[0] == cmd_arg[0]:
