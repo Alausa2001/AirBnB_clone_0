@@ -19,9 +19,19 @@ class HBNBCommand(cmd.Cmd):
     """This class handles the implementation of the
     command interpreter attributes"""
 
-    # def do_help(self, arg: str) -> 'type' | 'NoneType':
-    #     """lists commands with detailed help"""
-    #     return super().do_help(arg)
+    def precmd(self, line):
+        new = line.split(".", 1)
+        if len(new) == 2:
+            cls_nm, cmd_all = new
+            command, cmd_info = cmd_all.split("(")
+            cmd_info = cmd_info.rstrip(")")
+            if cmd_info:
+                cmd_info = cmd_info.replace('"', '')
+                return line
+            else:
+                line = command + " " + cls_nm
+                return line
+        return cmd.Cmd.precmd(self, line)
 
     def do_EOF(self, line):
         """exits the program"""
@@ -96,7 +106,9 @@ class HBNBCommand(cmd.Cmd):
             if cmd_arg[0] in classes:
                 all_dict = storage.all()
                 for key in all_dict.keys():
-                    all_list.append(str(all_dict[key]))
+                    ref = key.split('.')
+                    if ref[0] == cmd_arg[0]:
+                        all_list.append(str(all_dict[key]))
                 print(all_list)
             else:
                 print("** class doesn't exist **")

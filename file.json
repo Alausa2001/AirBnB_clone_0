@@ -35,5 +35,29 @@
         "created_at": "2022-09-05T00:38:48.201438",
         "updated_at": "2022-09-05T00:38:48.201438",
         "__class__": "User"
+    },
+    "BaseModel.e198d8ee-394e-4750-8b6e-685b6b3fa862": {
+        "id": "e198d8ee-394e-4750-8b6e-685b6b3fa862",
+        "created_at": "2022-09-05T03:44:16.118028",
+        "updated_at": "2022-09-05T03:44:16.118028",
+        "__class__": "BaseModel"
+    },
+    "BaseModel.d97ef6e3-0fb7-40ef-8de0-806aec6d4092": {
+        "id": "d97ef6e3-0fb7-40ef-8de0-806aec6d4092",
+        "created_at": "2022-09-05T04:03:00.439209",
+        "updated_at": "2022-09-05T04:03:00.439209",
+        "__class__": "BaseModel"
+    },
+    "BaseModel.25445ad3-c55a-4f95-a07a-ced3f709566b": {
+        "id": "25445ad3-c55a-4f95-a07a-ced3f709566b",
+        "created_at": "2022-09-05T04:06:34.727665",
+        "updated_at": "2022-09-05T04:06:34.727665",
+        "__class__": "BaseModel"
+    },
+    "User.9553c9de-0ecd-4c75-bf74-c219f454f3f3": {
+        "id": "9553c9de-0ecd-4c75-bf74-c219f454f3f3",
+        "created_at": "2022-09-05T04:09:05.831718",
+        "updated_at": "2022-09-05T04:09:05.831718",
+        "__class__": "User"
     }
 }
