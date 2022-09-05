@@ -25,12 +25,9 @@ class HBNBCommand(cmd.Cmd):
             cls_nm, cmd_all = new
             command, cmd_info = cmd_all.split("(")
             cmd_info = cmd_info.rstrip(")")
-            if cmd_info:
-                cmd_info = cmd_info.replace('"', '')
-                return line
-            else:
-                line = command + " " + cls_nm
-                return line
+            cmd_info = cmd_info.replace('"', '')
+            line = command + " " + cls_nm + " " + cmd_info
+            return line
         return cmd.Cmd.precmd(self, line)
 
     def do_EOF(self, line):

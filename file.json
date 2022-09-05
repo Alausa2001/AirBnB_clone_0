@@ -59,5 +59,11 @@
         "created_at": "2022-09-05T04:09:05.831718",
         "updated_at": "2022-09-05T04:09:05.831718",
         "__class__": "User"
+    },
+    "BaseModel.40ec2162-34fe-44ae-afac-8d5180d972da": {
+        "id": "40ec2162-34fe-44ae-afac-8d5180d972da",
+        "created_at": "2022-09-05T04:18:53.864331",
+        "updated_at": "2022-09-05T04:18:53.864331",
+        "__class__": "BaseModel"
     }
 }
