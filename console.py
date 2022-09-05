@@ -143,6 +143,16 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
+    def do_count(self, arg):
+        """ retrieve the number of instances of a class"""
+        count = 0
+        cmd_arg = arg.split()
+        for key in storage.all().keys():
+            key = key.split('.')
+            if key[0] == cmd_arg[0]:
+                count += 1
+        print(count)
+
     prompt = "(hbnb) "
 
 
