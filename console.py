@@ -22,12 +22,22 @@ class HBNBCommand(cmd.Cmd):
     def precmd(self, line):
         new = line.split(".", 1)
         if len(new) == 2:
+            if new[0] == 'update':
+                pass
+            else:
+                cls_nm, cmd_all = new
+                command, cmd_info = cmd_all.split("(")
+                cmd_info = cmd_info.rstrip(")")
+                cmd_info = cmd_info.replace('"', '')
+                line = command + " " + cls_nm + " " + cmd_info
+                return line
+        """
+        elif len(new) > 2:
             cls_nm, cmd_all = new
             command, cmd_info = cmd_all.split("(")
             cmd_info = cmd_info.rstrip(")")
             cmd_info = cmd_info.replace('"', '')
-            line = command + " " + cls_nm + " " + cmd_info
-            return line
+            line = """
         return cmd.Cmd.precmd(self, line)
 
     def do_EOF(self, line):
