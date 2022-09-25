@@ -21,4 +21,6 @@ class TESTBASEMODEL(unittest.TestCase):
             dict_cnt = loads(fil_cnt)
         self.assertTrue('{}.{}'.format(type(self.base).__name__,
                         self.base.id) in dict_cnt)
-
+        
+        dict_base = self.base.to_dict()
+        self.assertIsInstance(dict_base, dict)
