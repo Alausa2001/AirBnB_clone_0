@@ -149,9 +149,12 @@ class HBNBCommand(cmd.Cmd):
                 if class_id in show:
                     if len(c_arg) > 2:
                         if len(c_arg) == 4:
-                            c_arg[3] = eval(c_arg[3])
-                            show[class_id].__dict__[c_arg[2]] = c_arg[3]
-                            storage.save()
+                            try:
+                                c_arg[3] = eval(c_arg[3])
+                                show[class_id].__dict__[c_arg[2]] = c_arg[3]
+                                storage.save()
+                            except NameError:
+                                pass
                         else:
                             print("** value missing **")
                     else:
