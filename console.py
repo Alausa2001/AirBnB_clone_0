@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This module contains the entry point of the command interpreter"""
 
-
+import shlex
 import cmd
 from models.base_model import BaseModel
 from models.__init__ import storage
@@ -20,7 +20,7 @@ class HBNBCommand(cmd.Cmd):
     command interpreter attributes"""
 
     def precmd(self, line):
-        new = line.split(".")
+        new = line.split(".", 1)
         if len(new) == 2:
             if 'update' in new[1]:
                 classname, cmddetails = new
@@ -32,6 +32,7 @@ class HBNBCommand(cmd.Cmd):
                 for detail in details:
                     detail = detail.rstrip(',')
                     detail = detail.replace('"', '')
+                    detail = detail.strip()
                     details_list.append(detail)
                 id_, key, value = details_list
                 line = cmd_name + ' ' + classname + ' '
@@ -40,7 +41,9 @@ class HBNBCommand(cmd.Cmd):
 
             else:
                 cls_nm, cmd_all = new
-                command, cmd_info = cmd_all.split("(")
+                cmd_all = cmd_all.split("(")
+                print(cmd_all)
+                command, cmd_info = cmd_all
                 cmd_info = cmd_info.rstrip(")")
                 cmd_info = cmd_info.replace('"', '')
                 line = command + " " + cls_nm + " " + cmd_info
@@ -139,23 +142,22 @@ class HBNBCommand(cmd.Cmd):
         """update an instance based on class and id
         Usage: update <class name> <id> <attribute name> <attribute value>"""
         c_arg = arg.split()
-        show = storage.all()
+        cls_dict = storage.all()
         if len(c_arg) == 0:
             print("** class name missing **")
             return False
         if c_arg[0] in classes:
             if len(c_arg) > 1:
                 class_id = '.'.join([c_arg[0], c_arg[1]])
-                if class_id in show:
+                if class_id in cls_dict:
                     if len(c_arg) > 2:
                         if len(c_arg) > 3:
                             try:
-                                for key in show:
-                                    c_arg[3] = eval(c_arg[3])
-                                    show[class_id].__dict__[c_arg[2]] = c_arg[3]
-                                    storage.save()
+                                c_arg[3] = eval(c_arg[3])
                             except NameError:
                                 pass
+                            cls_dict[class_id].__dict__[c_arg[2]] = c_arg[3]
+                            storage.save()
                         else:
                             print("** value missing **")
                     else:
