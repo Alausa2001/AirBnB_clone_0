@@ -152,7 +152,7 @@ class HBNBCommand(cmd.Cmd):
                             try:
                                 for key in show:
                                     c_arg[3] = eval(c_arg[3])
-                                    show[class_id].__dict__[c_arg[2]] = c_arg[3]
+                                    show[key].__dict__[c_arg[2]] = c_arg[3]
                                     storage.save()
                             except NameError:
                                 pass
