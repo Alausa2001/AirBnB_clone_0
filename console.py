@@ -148,11 +148,12 @@ class HBNBCommand(cmd.Cmd):
                 class_id = '.'.join([c_arg[0], c_arg[1]])
                 if class_id in show:
                     if len(c_arg) > 2:
-                        if len(c_arg) == 4:
+                        if len(c_arg) > 3:
                             try:
-                                c_arg[3] = eval(c_arg[3])
-                                show[class_id].__dict__[c_arg[2]] = c_arg[3]
-                                storage.save()
+                                for key in show:
+                                    c_arg[3] = eval(c_arg[3])
+                                    show[class_id].__dict__[c_arg[2]] = c_arg[3]
+                                    storage.save()
                             except NameError:
                                 pass
                         else:
