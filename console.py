@@ -42,7 +42,6 @@ class HBNBCommand(cmd.Cmd):
             else:
                 cls_nm, cmd_all = new
                 cmd_all = cmd_all.split("(")
-                print(cmd_all)
                 command, cmd_info = cmd_all
                 cmd_info = cmd_info.rstrip(")")
                 cmd_info = cmd_info.replace('"', '')
@@ -154,6 +153,10 @@ class HBNBCommand(cmd.Cmd):
                         if len(c_arg) > 3:
                             try:
                                 c_arg[3] = eval(c_arg[3])
+                                for key in show:
+                                    c_arg[3] = eval(c_arg[3])
+                                    show[key].__dict__[c_arg[2]] = c_arg[3]
+                                    storage.save()
                             except NameError:
                                 pass
                             cls_dict[class_id].__dict__[c_arg[2]] = c_arg[3]
