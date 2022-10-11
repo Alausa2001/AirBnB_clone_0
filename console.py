@@ -50,7 +50,7 @@ class HBNBCommand(cmd.Cmd):
         return cmd.Cmd.precmd(self, line)
 
     def do_EOF(self, line):
-        """exits the program"""
+        """to exits the program"""
         return True
 
     def do_quit(self, line):
